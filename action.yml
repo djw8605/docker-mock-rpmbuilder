@@ -6,10 +6,6 @@ inputs:
     description: 'Location of the spec file within the repository'
     required: true
     default: 'rpm/spec.spec'
-  mock-config:
-    description: 'The mock configuration'
-    required: true
-    default: 'epel-7-x86_64'
 
 outputs:
   time: # id of output
@@ -19,4 +15,3 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.spec-file }}
-    - ${{ inputs.mock-config }}
