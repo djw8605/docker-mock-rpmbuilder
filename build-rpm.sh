@@ -83,6 +83,12 @@ if [ ! -z "$SOURCE_RPM" ]; then
 elif [ ! -z "$SPEC_FILE" ]; then
         # Search through the spec file to find the sources
         SOURCES=$(rpmspec -P $SPEC_FILE | grep -i  Source0 | cut -d ':' -f 2- | xargs basename)
+        if [[ $SOURCES == *.tar.gz ]]; then
+                # Get the directory name
+                dirname=${SOURCES%.tar.gz}
+                git archive HEAD --prefix=${dirname}/ --format tar | gzip >$SOURCES
+        fi
+        
         if [ -z "$SOURCES" ]; then
                 echo "You need to specify SOURCES env variable pointing to folder or sources file (only when building with SPEC_FILE)"
                 exit 1;
