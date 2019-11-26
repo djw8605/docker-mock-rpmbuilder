@@ -17,3 +17,4 @@ yum-builddep $SPEC_FILE
 
 mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cp $SOURCES ~/rpmbuild/SOURCES
+rpmbuild -ba $SPEC_FILE
