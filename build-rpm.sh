@@ -110,7 +110,7 @@ elif [ ! -z "$SPEC_FILE" ]; then
 fi
 
 chmod 755 $OUTPUT_FOLDER/script-test.sh
-runuser -l builder -c "sh $OUTPUT_FOLDER/script-test.sh"
+runuser -l builder -c "sh -x $OUTPUT_FOLDER/script-test.sh"
 
 rm $OUTPUT_FOLDER/script-test.sh
 
