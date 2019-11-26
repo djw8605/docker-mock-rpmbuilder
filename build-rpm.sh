@@ -1,6 +1,9 @@
 #!/bin/bash
 # exit when any command fails
-set -e
+set -ex
+
+SPEC_FILE=$1
+
 MOCK_BIN=/usr/bin/mock
 MOCK_CONF_FOLDER=/etc/mock
 MOUNT_POINT=$GITHUB_WORKSPACE
