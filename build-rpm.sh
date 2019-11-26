@@ -13,7 +13,7 @@ if [[ $SOURCES == *.tar.gz ]]; then
         git archive HEAD --prefix=${dirname}/ --format tar | gzip >$SOURCES
 fi
 
-yum-builddep $SPEC_FILE
+yum-builddep -y $SPEC_FILE
 
 mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cp $SOURCES ~/rpmbuild/SOURCES
