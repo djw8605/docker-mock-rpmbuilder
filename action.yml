@@ -1,0 +1,17 @@
+# action.yml
+name: 'Build RPM with Mock'
+description: 'Build an RPM with Mock'
+inputs:
+  spec-file:  # id of input
+    description: 'Location of the spec file within the repository'
+    required: true
+    default: 'rpm/spec.spec'
+
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.spec-file }}
