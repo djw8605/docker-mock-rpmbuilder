@@ -3,6 +3,7 @@
 set -ex
 
 SPEC_FILE=$1
+MOCK_CONFIG=$2
 
 MOCK_BIN=/usr/bin/mock
 MOCK_CONF_FOLDER=/etc/mock
