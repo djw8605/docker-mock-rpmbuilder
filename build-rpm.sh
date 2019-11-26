@@ -78,6 +78,8 @@ if [ ! -z "$SOURCE_RPM" ]; then
           echo "$MOCK_BIN $DEFINE_CMD -r $MOCK_CONFIG --rebuild $MOUNT_POINT/$SOURCE_RPM --resultdir=$OUTPUT_FOLDER" > $OUTPUT_FOLDER/script-test.sh
         fi
 elif [ ! -z "$SPEC_FILE" ]; then
+        # Search through the spec file to find the sources
+        SOURCES=$(rpmspec -P scitokens-cpp.spec | grep -i  Source0 | cut -d ':' -f 2- | xargs basename)
         if [ -z "$SOURCES" ]; then
                 echo "You need to specify SOURCES env variable pointing to folder or sources file (only when building with SPEC_FILE)"
                 exit 1;

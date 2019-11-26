@@ -6,7 +6,7 @@ LABEL "com.github.actions.icon"="pocket"
 LABEL "com.github.actions.color"="green"
 
 RUN yum -y --setopt="tsflags=nodocs" update && \
-	yum -y --setopt="tsflags=nodocs" install epel-release mock rpm-sign expect && \
+	yum -y --setopt="tsflags=nodocs" install epel-release mock rpm-sign expect rpm-build && \
 	yum clean all && \
 	rm -rf /var/cache/yum/
 
