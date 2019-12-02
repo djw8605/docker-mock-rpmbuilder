@@ -58,14 +58,14 @@ fi
 OUTPUT_FOLDER=${OUTPUT_FOLDER}/${MOCK_CONFIG}
 if [ ! -d "$OUTPUT_FOLDER" ]; then
         mkdir -p $OUTPUT_FOLDER
-        chown -R builder:mock $OUTPUT_FOLDER
+#        chown -R builder:mock $OUTPUT_FOLDER
 else
         rm -f $OUTPUT_FOLDER/*
 fi
 
 if [ ! -d "$CACHE_FOLDER" ]; then
         mkdir -p $CACHE_FOLDER
-        chown -R builder:mock $CACHE_FOLDER
+#        chown -R builder:mock $CACHE_FOLDER
 fi
 
 echo "=> Building parameters:"
@@ -110,7 +110,8 @@ elif [ ! -z "$SPEC_FILE" ]; then
 fi
 
 chmod 755 $OUTPUT_FOLDER/script-test.sh
-runuser -l builder -c "sh $OUTPUT_FOLDER/script-test.sh"
+sh $OUTPUT_FOLDER/script-test.sh
+#runuser -l builder -c "sh $OUTPUT_FOLDER/script-test.sh"
 
 rm $OUTPUT_FOLDER/script-test.sh
 
