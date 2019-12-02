@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:centos7.6.1810
 LABEL "maintainer"="Marco Mornati <marco@mornati.net>"
 LABEL "com.github.actions.name"="RPM Builder"
 LABEL "com.github.actions.description"="Build RPM using RedHat Mock"
@@ -7,7 +7,6 @@ LABEL "com.github.actions.color"="green"
 
 RUN yum -y --setopt="tsflags=nodocs" update && \
 	yum -y --setopt="tsflags=nodocs" install epel-release yum-utils rpm-build git && \
-	yum -y --setopt="tsflags=nodocs" install mock && \
 	yum clean all && \
 	rm -rf /var/cache/yum/
 
