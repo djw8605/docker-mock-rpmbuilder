@@ -10,7 +10,7 @@ SOURCES=$(rpmspec -P $SPEC_FILE | grep -i  Source0 | cut -d ':' -f 2- | xargs ba
 if [[ $SOURCES == *.tar.gz ]]; then
         # Get the directory name
         dirname=${SOURCES%.tar.gz}
-        tar czf --transform="s/^\./$dirname/" $SOURCES .
+        tar --transform="s/^\./$dirname/" czf $SOURCES .
 fi
 
 yum-builddep -y $SPEC_FILE
