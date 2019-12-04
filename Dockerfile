@@ -7,7 +7,7 @@ LABEL "com.github.actions.color"="green"
 
 RUN yum -y --setopt="tsflags=nodocs" update && \
 	yum -y --setopt="tsflags=nodocs" install epel-release yum-utils rpm-build git redhat-rpm-config && \
-	yum -y --setopt="tsflags=nodocs" install epel-rpm-macros
+	yum -y --setopt="tsflags=nodocs" install epel-rpm-macros && \
 	yum clean all && \
 	rm -rf /var/cache/yum/
 
