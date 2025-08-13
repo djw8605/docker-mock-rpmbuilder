@@ -15,7 +15,7 @@ if [[ $SOURCES == *.tar.gz ]]; then
         set -e
 fi
 
-yum-builddep -y $SPEC_FILE
+dnf builddep -y $SPEC_FILE
 
 mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 cp $SOURCES ~/rpmbuild/SOURCES
